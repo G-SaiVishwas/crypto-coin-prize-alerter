@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Alert Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Crypto Alert Dashboard</h1>
+        <p>Monitor real-time cryptocurrency prices and set up alerts</p>
+    </header>
+
+    <main>
+        <!-- Quick Actions Section -->
+        <section class="quick-actions">
+            <button class="action-btn">
+                <i class="fas fa-plus"></i>
+                Add Crypto
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-bell"></i>
+                New Alert
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-wallet"></i>
+                Portfolio
+            </button>
+            <button class="action-btn">
+                <i class="fas fa-download"></i>
+                Export
+            </button>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Crypto Selection Section -->
+            <section class="card" id="selection-section">
+                <h2>Select Cryptocurrencies</h2>
+                <div class="search-box">
+                    <input type="text" id="crypto-search" placeholder="Search cryptocurrencies...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div id="crypto-list">
+                    <!-- Crypto list will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Price Display Section -->
+            <section class="card" id="price-section">
+                <h2>Current Prices</h2>
+                <div id="price-display">
+                    <!-- Price cards will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
