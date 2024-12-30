@@ -5,61 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Alert Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Chart.js for graphs -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <header>
-        <h1>Crypto Alert Dashboard</h1>
-        <p>Monitor real-time cryptocurrency prices and set up alerts</p>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>Crypto Alert Dashboard</h1>
+            </div>
+            <p class="subtitle">Real-time cryptocurrency tracking & alerts</p>
+            
+            <!-- Market Overview -->
+            <div class="market-overview">
+                <div class="market-stat">
+                    <span class="label">Global Market Cap</span>
+                    <span id="global-mcap" class="value">Loading...</span>
+                </div>
+                <div class="market-stat">
+                    <span class="label">24h Volume</span>
+                    <span id="global-volume" class="value">Loading...</span>
+                </div>
+                <div class="market-stat">
+                    <span class="label">BTC Dominance</span>
+                    <span id="btc-dominance" class="value">Loading...</span>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
-        <!-- Quick Actions Section -->
+        <!-- Quick Actions -->
         <section class="quick-actions">
-            <button class="action-btn">
+            <button class="action-btn" id="add-crypto-btn">
                 <i class="fas fa-plus"></i>
-                Add Crypto
+                <span>Add Crypto</span>
             </button>
-            <button class="action-btn">
+            <button class="action-btn" id="new-alert-btn">
                 <i class="fas fa-bell"></i>
-                New Alert
+                <span>New Alert</span>
             </button>
-            <button class="action-btn">
+            <button class="action-btn" id="portfolio-btn">
                 <i class="fas fa-wallet"></i>
-                Portfolio
+                <span>Portfolio</span>
             </button>
-            <button class="action-btn">
+            <button class="action-btn" id="export-btn">
                 <i class="fas fa-download"></i>
-                Export
+                <span>Export</span>
             </button>
         </section>
 
-        <!-- Main Content Grid -->
-        <div class="content-grid">
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
             <!-- Crypto Selection Section -->
             <section class="card" id="selection-section">
-                <h2>Select Cryptocurrencies</h2>
-                <div class="search-box">
-                    <input type="text" id="crypto-search" placeholder="Search cryptocurrencies...">
-                    <i class="fas fa-search"></i>
+                <div class="card-header">
+                    <h2>Select Cryptocurrencies</h2>
+                    <div class="search-box">
+                        <input type="text" id="crypto-search" placeholder="Search cryptocurrencies...">
+                        <i class="fas fa-search"></i>
+                    </div>
                 </div>
-                <div id="crypto-list">
+                <div class="filter-tags">
+                    <button class="filter-tag active">All</button>
+                    <button class="filter-tag">Top 100</button>
+                    <button class="filter-tag">Trending</button>
+                    <button class="filter-tag">Favorites</button>
+                </div>
+                <div id="crypto-list" class="scrollable">
                     <!-- Crypto list will be populated by JavaScript -->
                 </div>
             </section>
 
             <!-- Price Display Section -->
             <section class="card" id="price-section">
-                <h2>Current Prices</h2>
-                <div id="price-display">
+                <div class="card-header">
+                    <h2>Current Prices</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="price-display" class="scrollable">
                     <!-- Price cards will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="card" id="charts-section">
+                <div class="card-header">
+                    <h2>Price Charts</h2>
+                    <div class="timeframe-toggle">
+                        <button class="timeframe-btn active">24h</button>
+                        <button class="timeframe-btn">7d</button>
+                        <button class="timeframe-btn">30d</button>
+                    </div>
+                </div>
+                <div id="charts-container">
+                    <!-- Charts will be populated by JavaScript -->
                 </div>
             </section>
         </div>
     </main>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Modals -->
+    <div id="alert-modal" class="modal">
+        <!-- Modal content will be populated by JavaScript -->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Data provided by <a href="https://www.coingecko.com/" target="_blank">CoinGecko</a></p>
+            <p>&copy; 2023 Crypto Alert Dashboard</p>
+        </div>
+    </footer>
 
     <script src="scripts.js"></script>
 </body>
